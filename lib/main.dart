@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
     },
     {
       'questionText': 'Whats your fav animal',
-      'answers': ['Rabbit', 'Snake', 'Lion'],
+      'answers': ['Rabbit', 'Snake', 'Lion', 'Elephant', 'Dog'],
     },
     {
       'questionText': 'Is my age 50',
@@ -46,16 +46,21 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My Quiz'),
         ),
-        body: Column(
-          children: [
-            (Question(questions[_questionNumber]['questionText'] as String)),
-            ...(questions[_questionNumber]['answers'] as List<String>)
-                .map(
-                  (answer) => Answer(_answerQuestion, answer),
-                )
-                .toList()
-          ],
-        ),
+        body: _questionNumber < questions.length
+            ? Column(
+                children: [
+                  (Question(
+                      questions[_questionNumber]['questionText'] as String)),
+                  ...(questions[_questionNumber]['answers'] as List<String>)
+                      .map(
+                        (answer) => Answer(_answerQuestion, answer),
+                      )
+                      .toList()
+                ],
+              )
+            : Center(
+                child: Text("You did it!"),
+              ),
       ),
     );
   }
