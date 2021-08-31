@@ -19,32 +19,35 @@ class _MyAppState extends State<MyApp> {
     {
       'questionText': 'Whats your fav Color?',
       'answers': [
-        {'text': 'Black', 'score': '50'},
-        {'text': 'Blue', 'score': '30'},
-        {'text': 'Green', 'score': '20'}
+        {'text': 'Black', 'score': 50},
+        {'text': 'Blue', 'score': 30},
+        {'text': 'Green', 'score': 20}
       ],
     },
     {
       'questionText': 'Whats your fav animal',
       'answers': [
-        {'text': 'Rabbit', 'score': '30'},
-        {'text': 'Snake', 'score': '20'},
-        {'text': 'Lion', 'score': '10'},
-        {'text': 'Elephant', 'score': '8'},
-        {'text': 'Dog', 'score': '6'}
+        {'text': 'Rabbit', 'score': 30},
+        {'text': 'Snake', 'score': 20},
+        {'text': 'Lion', 'score': 10},
+        {'text': 'Elephant', 'score': 8},
+        {'text': 'Dog', 'score': 6}
       ],
     },
     {
       'questionText': 'Is my age 50',
       'answers': [
-        {'text': 'Yes', 'score': '20'},
-        {'text': 'No', 'score': '10'},
-        {'text': 'iono', 'score': '2'}
+        {'text': 'Yes', 'score': 20},
+        {'text': 'No', 'score': 10},
+        {'text': 'iono', 'score': 2}
       ],
     },
   ];
   var _questionNumber = 0;
-  void _answerQuestion() {
+  var _totalScore = 0;
+
+  void _answerQuestion(int score) {
+    _totalScore += 1;
     if (_questionNumber < _questions.length) {
       setState(() {
         _questionNumber++;
