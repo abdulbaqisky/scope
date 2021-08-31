@@ -47,12 +47,10 @@ class _MyAppState extends State<MyApp> {
   var _totalScore = 0;
 
   void _answerQuestion(int score) {
-    _totalScore += 1;
-    if (_questionNumber < _questions.length) {
-      setState(() {
-        _questionNumber++;
-      });
-    }
+    _totalScore += score;
+    setState(() {
+      _questionNumber++;
+    });
   }
 
   @override
@@ -68,7 +66,7 @@ class _MyAppState extends State<MyApp> {
                   questionIndex: _questionNumber,
                   questions: _questions,
                 )
-              : Result()),
+              : Result(_totalScore)),
     );
   }
 }
