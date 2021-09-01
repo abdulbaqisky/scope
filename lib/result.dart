@@ -28,7 +28,7 @@ class Result extends StatelessWidget {
             resultPhrase,
             style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
           ),
-          FlatButton(onPressed: resetQuiz, child: Text('Restart Quiz'))
+          TextButton(onPressed: resetQuiz, child: Text('Restart Quiz'))
         ],
       ),
     );
